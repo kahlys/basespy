@@ -15,23 +15,25 @@ func main() {
 	flag.Parse()
 
 	fmt.Printf("Read file %v\n", *fileIn)
+
 	file, err := os.Open(*fileIn)
 	if err != nil {
 		fmt.Println("error:", err)
-		os.Exit(1)
+		return
 	}
 	defer file.Close()
+
 	datas, err := ioutil.ReadAll(file)
 	if err != nil {
 		fmt.Println("error:", err)
-		os.Exit(1)
+		return
 	}
 
 	fmt.Println("Searching for hidden datas")
 	res, err := unhide(string(datas), *sep, *base)
 	if err != nil {
 		fmt.Println("error:", err)
-		os.Exit(1)
+		return
 	}
 
 	fmt.Printf("\n%v\n", res)

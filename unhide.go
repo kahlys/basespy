@@ -15,8 +15,7 @@ const (
 )
 
 func unhide(message, sep string, base int) (string, error) {
-	res := ""
-	baseChar := ""
+	var baseChar string
 
 	switch base {
 	case 32:
@@ -37,6 +36,7 @@ func unhide(message, sep string, base int) (string, error) {
 		ubPad[i] = (wordLen - i*nbits) % 8
 	}
 
+	res := ""
 	for i, line := range strings.Split(message, sep) {
 		line = strings.TrimSpace(line)
 		if len(line)%nbChars != 0 {
@@ -67,8 +67,7 @@ func binaryToString(bin string) string {
 		if i+8 > len(bin) {
 			break
 		}
-		chunk := bin[i : i+8]
-		s, err := strconv.ParseInt(chunk, 2, 32)
+		s, err := strconv.ParseInt(bin[i:i+8], 2, 32)
 		if err != nil {
 			panic(err)
 		}
