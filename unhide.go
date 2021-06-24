@@ -23,6 +23,8 @@ func unhide(message, sep string, base int) (string, error) {
 		baseChar = base32Char
 	case 64:
 		baseChar = base64Char
+	default:
+		return "", fmt.Errorf("unsupported base %v", base)
 	}
 
 	nbits := int(math.Log2(float64(len(baseChar)))) // number of bits used for each value
