@@ -14,13 +14,13 @@ The tool takes as arguments:
 
 You can read help:
 
-```shell
+```none
 basespy -h
 ```
 
 ### Example
 
-```shell
+```none
 $ basespy -in examples/encoded.txt 
 Read file examples/encoded.txt
 Searching for hidden datas
