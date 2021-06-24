@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 )
 
@@ -18,12 +17,14 @@ func main() {
 	fmt.Printf("Read file %v\n", *fileIn)
 	file, err := os.Open(*fileIn)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("error:", err)
+		os.Exit(1)
 	}
 	defer file.Close()
 	datas, err := ioutil.ReadAll(file)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("error:", err)
+		os.Exit(1)
 	}
 
 	fmt.Println("Searching for hidden datas")
