@@ -21,7 +21,7 @@ basespy -h
 ### Example
 
 ```shell
-$ go run *.go -in examples/encoded.txt 
+$ basespy -in examples/encoded.txt 
 Read file examples/encoded.txt
 Searching for hidden datas
 
